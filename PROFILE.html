@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>BSIT 2Y - Profiles</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .team-grid-head {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .team-member {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 2px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	      position: relative; /* Set position to relative */
+      }
+
+	.done-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: block; /* Hide initially */
+      }
+
+	.done-overlay-late {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 77, 77, 0.5);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: block; /* Hide initially */
+      }
+
+	.done-overlay-wrong-path {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 184, 230, 0.5);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: block; /* Hide initially */
+      }
+       /* Add the twist animation */
+    @keyframes twistAnimation {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    .twist {
+      animation: twistAnimation 1s linear;
+    }
+      .team-member img {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .team-member a {
+        background-color: #dc143c; /* Change this to your desired background color */
+        color: #fff; /* Text color on the link */
+        text-decoration: none; /* Remove underline from the link */
+        width: 100%;
+        display: inline-block; /* Display the link as a block element */
+      }
+
+      .team-member a:hover {
+        text-decoration: underline;
+      }
+
+      .team-grid-head h2 {
+        margin-top: 10px;
+        font-size: 1.2rem;
+      }
+
+      .team-grid-head p {
+        color: #888;
+        margin-top: 5px;
+      }
+
+      @media screen and (max-width: 400px) {
+        /* Mobile */
+        .team-grid {
+          grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+          padding: 5px 25px; /* Adjust padding for mobile screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 25px; /* Adjust padding for desktop screens */
+        }
+      }
+
+      @media screen and (min-width: 401px) and (max-width: 650px) {
+        /* Tablet */
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+          padding: 5px 40px; /* Adjust padding for tablet screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 40px; /* Adjust padding for desktop screens */
+        }
+      }
+
+      @media screen and (min-width: 651px) and (max-width: 1024px) {
+        /* Tablet */
+        .team-grid {
+          grid-template-columns: repeat(3, 1fr); /* 2 columns for tablets */
+          padding: 5px 40px; /* Adjust padding for tablet screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 40px; /* Adjust padding for desktop screens */
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        /* Desktop */
+        .team-grid {
+          grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+          padding: 5px 90px; /* Adjust padding for desktop screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 90px; /* Adjust padding for desktop screens */
+        }
+      }
+    </style>
+     <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const teamMembers = document.querySelectorAll(".team-member img");
+
+      function twistOdd() {
+        teamMembers.forEach((member, index) => {
+          if (index % 2 === 0) {
+            member.classList.remove("twist");
+          } else {
+            member.classList.add("twist");
+          }
+        });
+      }
+
+      function twistEven() {
+        teamMembers.forEach((member, index) => {
+          if (index % 2 !== 0) {
+            member.classList.remove("twist");
+          } else {
+            member.classList.add("twist");
+          }
+        });
+      }
+
+      setInterval(function() {
+        twistOdd();
+        setTimeout(twistEven, 2500); // Twist even numbers after 2.5 seconds
+      }, 7000); // Repeat every 7 seconds
+    });
+  </script>
+  </head>
+  <body>
+    <div class="team-grid-head">
+      <h2>Self Introduction</h2>
+      <p>
+        Eto yung unang pinagawa ko sa inyo. Using HTML and CSS, introduce nyo sarili nyo then iupload sa Github.
+      </p>
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-member">
+        <a href="https://hubertcaguiat.github.io/demoonly/">
+          <h5>HUBERT I. CAGUIAT</h5></a>    
+      </div>
+
+      <div class="team-member">
+        <a href="https://gnome-x11.github.io/web/"><h5>DEXTER AROMIN</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://urkenneth.github.io/ken/"
+          ><h5>Kenneth Catalan Borbon</h5></a>
+      </div>
+
+      <div class="team-member">
+        
+        <a href="https://damayopatrickian.github.io/Profile/">
+          <h5>PATRICK IAN DAMAYO</h5></a>
+
+      </div>
+
+      <div class="team-member">
+
+        <a href="https://russeljohndionglay.github.io/russel./">
+          <h5>RUSSEL JOHN DIONGLAY</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://liamestares.github.io/portfolio-liam/">
+          <h5>LIAM LEI ESTARES</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://kjerome02.github.io/Activi/">
+          <h5>KING JEROME GACOSTA</h5></a>
+      </div>
+
+      <div class="team-member">
+               <a href="https://lingajohnlloyd.github.io/Linga/">
+          <h5>JOHN LLOYD LINGA</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://kenshinkillua.github.io/">
+          <h5>Kenshin Killua Wagwag</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://jhanrey0.github.io/Web_Tech-Adbs/">
+          <h5>Jhan Rey Llona</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://allensanchez1.github.io/SanchezAllen.Github.io/">
+          <h5>Allen Sanchez</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://eddyi3.github.io/public/">
+          <h5>Ed Martin Dulfo</h5></a>
+      </div>
+
+      <div class="team-member">
+             <a href="https://dyaaan.github.io/public/">
+          <h5>Dyan Abarcar</h5></a>
+      </div>
+            
+      <div class="team-member">
+        <a href="https://cresadeldanna.github.io/">
+          <h5>ADAN, CRESALDE DANNA</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://agapito18.github.io/">
+          <h5>AGAPITO, PATRICIA ANNE</h5></a>
+      </div>
+      
+      <div class="team-member">
+        <a href="https://jbalingasa13.github.io/Jbalingasa/">
+          <h5>BALINGASA, JUSTINE</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="bedoyashayne.github.io/Activity/">
+          <h5>Shayne Bedoya - ERROR</h5></a>
+      </div> 
+    
+      <div class="team-member">
+        <a href="https://charles2873.github.io/My-Portfolio/">
+          <h5>Charles Henry Bhambhani</h5></a>
+      </div> 
+      
+      <div class="team-member">
+        <a href="https://bombales222.github.io/SalvadorBombales.github.io/">
+          <h5>Bombales, Salvador</h5></a>
+      </div> 
+
+      <div class="team-member">
+        <a href="https://coleteact.github.io/coletejovy.github.io/">
+          <h5>Colete, Jovy Mae</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://rainzealdeguzman.github.io/home/"><h5>DE GUZMAN, RAINZEAL</h5></a>
+      </div>
+	 	
+      <div class="team-member">
+        <a href="https://princessjoydiana.github.io/WEEK_1-ORIENTATION/"><h5>DIANA, PRINCESS JOY</h5></a>
+      </div>
+	      
+    <div class="team-member">
+        <a href="https://formalejopatrick.github.io/Patricio/">
+          <h5> PATRICK ADRIAN FORMALEJO </h5></a>
+	  </div>
+
+    
+ 	    <div class="team-member">
+        <a href="https://vincejuan013.github.io/">
+          <h5>JUAN, VINCE RUEL V.</h5></a>
+      </div>
+
+ 	  <div class="team-member">
+        <a href="https://shin-da.github.io/">
+          <h5>JEFF MATHEW GARCIA</h5></a>
+      </div>
+      
+      <div class="team-member">
+        <a href="https://cvenlazar.github.io/AdrianLazar.github.io/">
+          <h5>LAZAR, ADRIAN CVEN</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://johnricky021.github.io/Lopena-Ricky/">
+          <h5>LOPENA, JOHN RICKY</h5></a>
+      </div>
+        
+      <div class="team-member">
+        <a href="https://lorenolaurence16.github.io/Lau/">
+          <h5>LAURENCE ANGELO LORENO</h5></a>
+      </div>
+      
+	<div class="team-member">
+        <a href="https://manalilicherrylyn.github.io/Cheee/">
+          <h5>CHERRYLYN MANALILI</h5></a>
+      </div>
+
+  <div class="team-member">
+        <a href="https://mendozaangelov.github.io/mendozaangelowebpage/"
+          ><h5>MENDOZA, ANGELO V.</h5></a>
+      </div>
+
+      <div class="team-member">
+       <a href="https://cyril010.github.io/Monencillo0.github.io/"
+          ><h5>MONENCILLO CYRIL JR</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://nathanielnido.github.io/nnido/"
+          ><h5>Nido, Nathaniel</h5></a>
+      </div>
+      
+      <div class="team-member">
+      <a href="https://aa041997.github.io/"
+          ><h5>Nieva, April</h5></a>
+      </div>
+
+ <div class="team-member">
+        <a href="https://palpallatocromlyn.github.io/Laboratory-1_webpage/">
+          <h5>PALPALLATOC, ROMLYN</h5></a>
+      </div>
+
+      <div class="team-member">
+       <a href="https://malenpaz4578.github.io/Activity_1/">
+          <h5>MARILYN PAZ</h5></a>
+      </div>
+
+      <div class="team-member">
+       <a href="https://gracellponce.github.io/gp.github.io/">
+          <h5>GRACELL JOY PONCE</h5></a>
+      </div>
+      
+      <div class="team-member">
+      <a href="https://archraph17.github.io/Archraph17/">
+          <h5>RAMOS, RAPHAEL JOSHUA</h5></a>
+      </div>
+
+      <div class="team-member">
+      <a href="https://sacapanosandy.github.io/">
+          <h5>SACAPANO, SANDY</h5></a>
+      </div>
+      
+      <div class="team-member">
+       <a href="https://chicksplayer.github.io/Activity1/">
+          <h5>SUMERA, DEAN ALSENDRO</h5></a>
+      </div>
+
+      <div class="team-member">
+       <a href="https://rolandotahumjr.github.io/">
+          <h5>ROLANDO J. TAHUM JR.</h5></a>
+      </div>    
+      
+      <div class="team-member">
+      <a href="https://rueltapit.github.io/githubs.io/">
+          <h5>Tapit, Ruel</h5></a>
+      </div>
+
+      <div class="team-member">
+      <a href="https://studentfromafar.github.io/AletheaTeope.github.io/">
+          <h5>TEOPE, ALETHEA FREDERICH</h5></a>
+      </div>
+
+	    <div class="team-member">
+               <a href="https://kaztromaes.github.io/HTML/">
+          <h5>LIMBO, ZACHARY JOSH</h5></a>
+      </div>
+
+      <div class="team-member">
+             <a href="https://julianisabelle03.github.io/">
+          <h5>CLARO, JULIAN ISABELLE</h5></a>
+      </div>
+
+      <div class="team-member">
+       <a href="https://ryandelacruz1.github.io/">
+          <h5>DELA CRUZ, VANRYAN M.</h5></a>
+      </div>
+      
+	    <div class="team-member">
+                <a href="https://maria457.github.io/">
+          <h5>ESCOTE, MARIA ELIZABETH</h5></a>
+      </div>
+
+  <div class="team-member">
+        <a href="https://demesajhonlloyd.github.io/jl/">
+          <h5>Jhon Lloyd B. De Mesa</h5></a>
+  </div>
+
+
+      <div class="team-member">
+         <a href="https://github.com/Billyjohn1">
+          <h5>DELA CRUZ, BILLY JOHN - ERROR</h5></a>
+         </div>
+
+
+ 	<div class="team-member">
+       <a href="https://aubreyeva.github.io/Activity_1/"><h5>AUBREY EVANGELISTA</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://nicoleomayon.github.io/Nic/">
+          <h5>Nicole Omayon</h5></a>
+      </div>
+
+      <div class="team-member">
+        <a href="https://redybanez.github.io/Redybanez12.github.io/">
+          <h5>YBANEZ, RED</h5></a>
+      </div>
+
+
+
+
+
+    </div>
+92 CLOSED, TOTAL OF 92 PUSHES <br/><br/>
+
+LAST PUSH, EVANGELISTA<br/>
+LAST CHECHED OF 12/17/2023
+  </body>
+</html>

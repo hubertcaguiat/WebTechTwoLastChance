@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>BSIT 2Y - Profiles in BOOTSTRAP</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .team-grid-head {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .team-member {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 2px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	      position: relative; /* Set position to relative */
+      }
+
+	.done-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: block; /* Hide initially */
+      }
+
+	.done-overlay-late {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 77, 77, 0.5);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: block; /* Hide initially */
+      }
+
+	.done-overlay-wrong-path {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 184, 230, 0.5);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: block; /* Hide initially */
+      }
+       /* Add the twist animation */
+    @keyframes twistAnimation {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    .twist {
+      animation: twistAnimation 1s linear;
+    }
+      .team-member img {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .team-member a {
+        background-color: #2C3E50; /* Change this to your desired background color */
+        color: #fff; /* Text color on the link */
+        text-decoration: none; /* Remove underline from the link */
+        width: 100%;
+        display: inline-block; /* Display the link as a block element */
+      }
+
+      .team-member a:hover {
+        text-decoration: underline;
+      }
+
+      .team-grid-head h2 {
+        margin-top: 10px;
+        font-size: 1.2rem;
+      }
+
+      .team-grid-head p {
+        color: #888;
+        margin-top: 5px;
+      }
+
+      @media screen and (max-width: 400px) {
+        /* Mobile */
+        .team-grid {
+          grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+          padding: 5px 25px; /* Adjust padding for mobile screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 25px; /* Adjust padding for desktop screens */
+        }
+      }
+
+      @media screen and (min-width: 401px) and (max-width: 650px) {
+        /* Tablet */
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+          padding: 5px 40px; /* Adjust padding for tablet screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 40px; /* Adjust padding for desktop screens */
+        }
+      }
+
+      @media screen and (min-width: 651px) and (max-width: 1024px) {
+        /* Tablet */
+        .team-grid {
+          grid-template-columns: repeat(3, 1fr); /* 2 columns for tablets */
+          padding: 5px 40px; /* Adjust padding for tablet screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 40px; /* Adjust padding for desktop screens */
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        /* Desktop */
+        .team-grid {
+          grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+          padding: 5px 90px; /* Adjust padding for desktop screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 90px; /* Adjust padding for desktop screens */
+        }
+      }
+    </style>
+     <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const teamMembers = document.querySelectorAll(".team-member img");
+
+      function twistOdd() {
+        teamMembers.forEach((member, index) => {
+          if (index % 2 === 0) {
+            member.classList.remove("twist");
+          } else {
+            member.classList.add("twist");
+          }
+        });
+      }
+
+      function twistEven() {
+        teamMembers.forEach((member, index) => {
+          if (index % 2 !== 0) {
+            member.classList.remove("twist");
+          } else {
+            member.classList.add("twist");
+          }
+        });
+      }
+
+      setInterval(function() {
+        twistOdd();
+        setTimeout(twistEven, 2500); // Twist even numbers after 2.5 seconds
+      }, 7000); // Repeat every 7 seconds
+    });
+  </script>
+  </head>
+  <body>
+    <div class="team-grid-head">
+<h2>Self Introduction using Bootstrap Framework</h2>
+<p>
+Eto naman activity na pinalipat ko profile nyo sa Bootstrap Framework then iupload pa din sa Github.
+</p>
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-member">
+        <a href="https://hubertcaguiat.github.io/demoonly/">
+          <h5>HUBERT I. CAGUIAT</h5></a>    
+      </div>
+
+      <div class="team-member">
+        <a href="https://eddyi3.github.io/eddddd.github.io/public/">
+          <h5>DULFO</h5></a>    
+      </div>
+
+      <div class="team-member">
+        <a href="https://rolandotahumjr.github.io/RolandoTahumJr.github.io-Bootstrap/">
+          <h5>TAHUM</h5></a>    
+      </div>
+
+	<div class="team-member">
+        <a href="https://vincejuan013.github.io/activity1-finals/">
+          <h5>JUAN</h5></a>    
+      </div>
+
+	<div class="team-member">
+        <a href="https://kenshinkillua.github.io/resume/index.html">
+          <h5>WAGWAG</h5></a>    
+      </div>
+
+	<div class="team-member">
+        <a href="https://rainzealdeguzman.github.io/home/">
+          <h5>DE GUZMAN</h5></a>    
+      </div>
+
+	<div class="team-member">
+        <a href="https://johnricky021.github.io/BSProfile/">
+          <h5>LOPENA - SAME</h5></a>    
+      </div>
+
+	<div class="team-member">
+        <a href="https://archraph17.github.io/MyBSProfile/">
+          <h5>RAMOS</h5></a>    
+      </div>
+
+	<div class="team-member">
+       <a href="https://malenpaz4578.github.io/BSProfile/">
+          <h5>PAZ</h5></a>    
+      </div>
+
+	<div class="team-member">
+      <a href="https://charles2873.github.io/Bootstrap/">
+          <h5>BHAMBHANI</h5></a>    
+      </div>
+
+	<div class="team-member">
+    <a href="https://nicoleomayon.github.io/NicoleOmayon/">
+          <h5>OMAYON - SAME</h5></a>    
+      </div>
+
+	<div class="team-member">
+    <a href="https://balines-26.github.io/4pic/">
+          <h5>BALINES - SAME</h5></a>    
+      </div>
+
+	<div class="team-member">
+    <a href="https://demesajhonlloyd.github.io/boot/">
+          <h5>DE MESA - SAME</h5></a>    
+      </div>
+
+	<div class="team-member">
+   <a href="https://allensanchez1.github.io/bootstrapp/">
+          <h5>SANCHEZ, A.</h5></a>    
+      </div>
+
+	<div class="team-member">
+   <a href="https://renielabong.github.io/Bootstrap---Abong">
+          <h5>ABONG</h5></a>    
+      </div>
+
+	<div class="team-member">
+   <a href="https://johnrex091.github.io/BSProfile/">
+          <h5>NAVARRO</h5></a>    
+      </div>
+
+	<div class="team-member">
+   <a href="https://manalilicherrylyn.github.io/myprofile/">
+          <h5>MANALILI - SAME</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://formalejopatrick.github.io/myprofile/">
+          <h5> FORMALEJO - SAME</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://jhanrey0.github.io/WTS-bootstrap/">
+          <h5> LLONA</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://rueltapit.github.io/githubs.io/">
+          <h5>TAPIT</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://damayopatrickian.github.io/profilebootstrap/">
+          <h5>DAMAYO - SAME</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://russeljohndionglay.github.io/miming/">
+          <h5>DIONGLAY - SAME</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://gracellponce.github.io/bootsnigp/">
+          <h5>PONCE</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://gnome-x11.github.io/profile/">
+          <h5>AROMIN</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://veejhay10.github.io/Profile/">
+          <h5>SANCHEZ, V. - SAME</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://bedoyashayne.github.io/MyBSProfile/">
+          <h5>BEDOYA - SAME</h5></a>    
+      </div>
+
+
+	<div class="team-member">
+<a href="https://redybanez.github.io/profile/">
+          <h5>YBANEZ - SAME</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://palpallatocromlyn.github.io/boostrap/">
+          <h5> PALPALLATOC</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://studentfromafar.github.io/profileBootstrap/">
+          <h5>TEOPE</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://shin-da.github.io/Me/">
+          <h5>GARCIA</h5></a>    
+      </div>
+
+	<div class="team-member">
+<a href="https://ryandelacruz1.github.io/bootstrap---Profile/">
+          <h5> DELA CRUZ, V.</h5></a>    
+      </div>
+  
+  
+	<div class="team-member">
+<a href="https://liamestares.github.io/Chivss-Bootstrap/">
+          <h5> ESTARES</h5></a>    
+      </div>
+
+  <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+          <div class="card">
+		
+        
+		</a>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+17 OPEN, 18 CLOSED, TOTAL OF 35 PUSHES  <BR/><BR/>
+
+
+LAST PUSH, YBANEZ </BR>
+LAST CHECHED OF 12/17/2023
+
+  </body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>BSIT 2Y - Profiles in BOOTSTRAP</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .team-grid-head {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .team-member {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 2px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	      position: relative; /* Set position to relative */
+      }
+
+	.done-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: block; /* Hide initially */
+      }
+
+	.done-overlay-late {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 77, 77, 0.5);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: block; /* Hide initially */
+      }
+
+	.done-overlay-wrong-path {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 184, 230, 0.5);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: block; /* Hide initially */
+      }
+       /* Add the twist animation */
+    @keyframes twistAnimation {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    .twist {
+      animation: twistAnimation 1s linear;
+    }
+      .team-member img {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .team-member a {
+        background-color: #D35400; /* Change this to your desired background color */
+        color: #fff; /* Text color on the link */
+        text-decoration: none; /* Remove underline from the link */
+        width: 100%;
+        display: inline-block; /* Display the link as a block element */
+      }
+
+      .team-member a:hover {
+        text-decoration: underline;
+      }
+
+      .team-grid-head h2 {
+        margin-top: 10px;
+        font-size: 1.2rem;
+      }
+
+      .team-grid-head p {
+        color: #888;
+        margin-top: 5px;
+      }
+
+      @media screen and (max-width: 400px) {
+        /* Mobile */
+        .team-grid {
+          grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+          padding: 5px 25px; /* Adjust padding for mobile screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 25px; /* Adjust padding for desktop screens */
+        }
+      }
+
+      @media screen and (min-width: 401px) and (max-width: 650px) {
+        /* Tablet */
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+          padding: 5px 40px; /* Adjust padding for tablet screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 40px; /* Adjust padding for desktop screens */
+        }
+      }
+
+      @media screen and (min-width: 651px) and (max-width: 1024px) {
+        /* Tablet */
+        .team-grid {
+          grid-template-columns: repeat(3, 1fr); /* 2 columns for tablets */
+          padding: 5px 40px; /* Adjust padding for tablet screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 40px; /* Adjust padding for desktop screens */
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        /* Desktop */
+        .team-grid {
+          grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+          padding: 5px 90px; /* Adjust padding for desktop screens */
+        }
+
+        .team-grid-head {
+          grid-template-columns: repeat(1, 1fr); /* 4 columns for desktop */
+          padding: 5px 90px; /* Adjust padding for desktop screens */
+        }
+      }
+    </style>
+     <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const teamMembers = document.querySelectorAll(".team-member img");
+
+      function twistOdd() {
+        teamMembers.forEach((member, index) => {
+          if (index % 2 === 0) {
+            member.classList.remove("twist");
+          } else {
+            member.classList.add("twist");
+          }
+        });
+      }
+
+      function twistEven() {
+        teamMembers.forEach((member, index) => {
+          if (index % 2 !== 0) {
+            member.classList.remove("twist");
+          } else {
+            member.classList.add("twist");
+          }
+        });
+      }
+
+      setInterval(function() {
+        twistOdd();
+        setTimeout(twistEven, 2500); // Twist even numbers after 2.5 seconds
+      }, 7000); // Repeat every 7 seconds
+    });
+  </script>
+  </head>
+  <body>
+    <div class="team-grid-head">
+<h2>Self Introduction using Bootstrap Framework Uploaded sa InfinityFree</h2>
+<p>
+Eto naman activity na yung profile nyo na ginawa sa Bootstrap ay need gawan ng database at ililipat yung content sa database nga. Dapat may option mag add, delete at lalo na edit. Then still  iupload pa din sa Github. Yang mga names dyan ay mga student na nagpush sa akin sa github. May mga ilan na tama na gawa, may option na edit kaya nilagyan ko ng "CHECKED", yun ung may "OK NA" sa name meaning tama na yang gawa. But karamihan sa nagpasa eh walang EDIT option or baka nga hindi tlaga nagawan ng database.
+</p>
+
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-member">
+        <a href="https://hubertcaguiat.github.io/demoonly/">
+          <h5>HUBERT I. CAGUIAT</h5></a>    
+      </div>
+
+      <div class="team-member">
+        <a href="http://profileupdate.42web.io/index.php">
+          <h5>WAGWAG - OK NA</h5></a>    
+      </div>
+
+     <div class="team-member">
+        <a href="http://juanvinceruel.rf.gd/Portfolio/index.php">
+          <h5>JUAN - OK NA</h5></a>    
+      </div>
+
+     <div class="team-member">
+        <a href="http://portfolio-garcia.atwebpages.com/">
+	<h5>GARCIA - OK NA</h5></a>    
+         
+      </div>
+
+     <div class="team-member">
+        <a href="http://raindeguzman.infinityfreeapp.com/index.php">
+	<h5>DE GUZMAN - OK NA</h5></a>  
+      </div>
+
+           <div class="team-member">
+       <a href="http://archraphael.free.nf/Profile/index.php">
+	<h5>RAMOS - OK NA</h5></a>  
+      </div>
+
+           <div class="team-member">
+      <a href="http://gracellphp.42web.io/notepads2/index.php">
+	<h5>PONCE - OK NA</h5></a>  
+      </div>
+
+           <div class="team-member">
+      <a href="http://nicole.free.nf/index.php">
+	<h5>OMAYON - OK NA</h5></a>  
+      </div>
+
+     <div class="team-member">
+        <a href="http://janrey.free.nf/">
+	<h5>LLONA</h5></a>  
+      </div>
+
+     <div class="team-member">
+        <a href="https://allen.free.nf">
+	<h5>SANCHEZ, A.</h5></a>  
+      </div>
+
+           <div class="team-member">
+        <a href="https://delacruz-vanryan.kesug.com">
+	<h5>DELA CRUZ, V.</h5></a>  
+      </div>
+
+           <div class="team-member">
+        <a href="edpogi.infinityfreeapp.com">
+	<h5>DULFO</h5></a>  
+      </div>
+
+           <div class="team-member">
+        <a href="http://profile-claro.free.nf">
+	<h5>CLARO</h5></a>  
+      </div>
+
+
+
+           <div class="team-member">
+        <a href="https://lgdopenajohnricky.rf.">
+	<h5>LOPENA</h5></a>  
+      </div>
+
+           <div class="team-member">
+        <a href="https://billyjohndelacruz.42web.io">
+	<h5>DELA CRUZ, B.</h5></a>  
+      </div>
+
+           <div class="team-member">
+        <a href="#">
+	<h5>COLETE - LINK NOT PROVIDED</h5></a>  
+      </div>
+
+           <div class="team-member">
+        <a href="<a href="http://profile-paz.free.nf/">
+	<h5>PAZ</h5></a>  
+      </div>
+
+           <div class="team-member">
+        <a href="http://studentfromafar.42web.io/">
+	<h5>TEOPE</h5></a>  
+      </div>
+
+           <div class="team-member">
+      <a href="http://demesa.free.nf/">
+	<h5>DE MESA</h5></a>  
+      </div>
+
+
+
+    </div>
+9 OPEN, 9 CLOSED, TOTAL OF 18 PUSHES <BR/><BR/>
+
+
+LAST PUSH, OMAYON<BR/>
+LAST CHECHED OF 12/17/2023
+
+  </body>
+</html>
